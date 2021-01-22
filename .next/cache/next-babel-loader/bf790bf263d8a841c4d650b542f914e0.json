@@ -1,0 +1,1 @@
+{"ast":null,"code":"export * from './account.service';\nexport * from './CRUD.service';","map":{"version":3,"sources":["C:/Users/tjmak/projects/simfy_interview/src/_services/index.service.tsx"],"names":[],"mappings":"AAAA,cAAc,mBAAd;AACA,cAAc,gBAAd","sourcesContent":["export * from './account.service';\nexport * from './CRUD.service';\n"]},"metadata":{},"sourceType":"module"}

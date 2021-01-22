@@ -1,0 +1,17 @@
+#components-layout-demo-fixed .logo {
+    width: 120px;
+    height: 31px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px 24px 16px 0;
+    float: left;
+}
+
+.site-layout {
+    margin-top: 64px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    min-height: calc(100vh - 64px);
+    .site-layout-background {
+        min-height: 340px;
+    }
+}

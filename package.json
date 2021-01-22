@@ -1,0 +1,52 @@
+{
+  "name": "flemoji",
+  "version": "1.0.0",
+  "description": "Fullstack project for Flemoji",
+  "main": "index.js",
+  "dependencies": {
+    "@theme-ui/presets": "^0.3.0",
+    "@types/theme-ui": "^0.3.7",
+    "@zeit/next-sass": "^1.0.1",
+    "antd": "^4.6.6",
+    "bootstrap": "^4.5.2",
+    "dotenv-load": "^2.0.0",
+    "history": "^5.0.0",
+    "lodash": "^4.17.20",
+    "next": "^9.5.3",
+    "next-connect": "^0.9.0",
+    "next-env": "^1.1.1",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.3.0",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "react-use": "^15.3.4",
+    "rxjs": "^6.6.3",
+    "swr": "^0.3.5",
+    "theme-ui": "^0.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^14.11.2",
+    "@types/react": "^16.9.49",
+    "@typescript-eslint/eslint-plugin": "^4.3.0",
+    "@typescript-eslint/parser": "^4.3.0",
+    "eslint": "^7.10.0",
+    "eslint-import-resolver-typescript": "^2.3.0",
+    "eslint-plugin-react": "^7.21.2",
+    "typescript": "^4.0.3"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "flemoji_next"
+  },
+  "keywords": [
+    "flemoji"
+  ],
+  "author": "tatenda",
+  "license": "ISC"
+}
