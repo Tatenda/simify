@@ -1,22 +1,28 @@
 /** @jsx jsx */
-import { Badge, Tag } from "antd";
-import { useEffect } from "react";
+import { Button, Result, Tag } from "antd";
+import { useContext, useEffect, useReducer } from "react";
 import ListItem from "src/components/listItem.component";
 import { Show } from "src/_models/shows.model";
 import useSWR from "swr";
 import { jsx } from "theme-ui";
 import ReactHtmlParser from "react-html-parser";
+import ShowContext from "src/_contexts/show.context";
+import { UPDATE } from "src/_helpers/types";
 
 const Page = () => {
     const { data, error } = useSWR<Show>(
-        "https://api.tvmaze.com/singlesearch/shows?q=24&embed=episodes"
+        "https://api.tvmaze.com/singlesearch/shows?q=rick-and-morty&embed=episodes"
     );
+    const { ShowState, dispatchShow } = useContext(ShowContext);
 
     useEffect(() => {
         if (data) {
-            console.log(data);
+            dispatchShow({
+                type: UPDATE,
+                payload: data,
+            });
         }
-        if (error) console.log(error);
+        if (error) console.log(error, data);
     }, [data, error]);
 
     if (!data && !error) {
@@ -24,7 +30,13 @@ const Page = () => {
     }
 
     if (error) {
-        //display error
+        return (
+            <Result
+                status="404"
+                title="404"
+                subTitle="The show you are looking for was not found"
+            />
+        );
     }
 
     return (
@@ -95,7 +107,9 @@ const Page = () => {
                                             color: "blue",
                                             textDecoration: "underline",
                                             fontSize: "16px",
-                                            "&:hover": { cursor: "pointer" },
+                                            "&:hover": {
+                                                cursor: "pointer",
+                                            },
                                             marginBlockEnd: "5px",
                                         }}
                                     >
