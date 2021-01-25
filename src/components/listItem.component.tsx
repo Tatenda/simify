@@ -2,8 +2,9 @@
 import { jsx } from "theme-ui";
 import { ShowEpisode } from "src/_models/shows.model";
 import LazyLoad from "react-lazyload";
-import { Skeleton } from "antd";
+import { Skeleton, Tag } from "antd";
 import { useRouter } from "next/router";
+import { darken } from "@theme-ui/color";
 
 interface IProp {
     episode: ShowEpisode;
@@ -12,12 +13,18 @@ interface IProp {
 const ListItem: React.FC<IProp> = ({ episode }) => {
     const router = useRouter();
     return (
-        <li className="col-3" onClick={() => router.push(`/${episode.id}`)}>
+        <li
+            className="col-3"
+            onClick={() => router.push(`/episode/${episode.id}`)}
+            sx={{
+                "&:hover": { bg: darken("whitesmoke", 0.1) },
+                cursor: "pointer",
+            }}
+        >
             <div
                 sx={{
                     variant: "containers.card",
                     bg: "whitesmoke",
-                    minHeight: "200px",
                     width: "auto",
                     maxWidth: "100%",
                 }}
@@ -45,10 +52,31 @@ const ListItem: React.FC<IProp> = ({ episode }) => {
                             display: "grid",
                             alignSelf: "center",
                         }}
-                        src={episode.image.original}
+                        src={episode.image && episode.image.original}
                     />
                 </LazyLoad>
-                {episode.name}
+            </div>
+            <div className="col-12 pt-2">
+                <div className="row">
+                    <div className="col-6">
+                        <Tag color="red">Season {episode.season}</Tag>
+                    </div>
+                    <div
+                        className="col-6"
+                        sx={{ display: "grid", placeItems: "center right" }}
+                    >
+                        <Tag color="blue">Episode {episode.number}</Tag>
+                    </div>
+                </div>
+                <p
+                    className="pt-1"
+                    sx={{
+                        fontWeight: "bold",
+                        fontSize: "18px",
+                    }}
+                >
+                    {episode.name}
+                </p>
             </div>
         </li>
     );
